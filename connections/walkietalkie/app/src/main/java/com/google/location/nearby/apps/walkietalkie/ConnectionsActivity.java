@@ -2,8 +2,10 @@ package com.google.location.nearby.apps.walkietalkie;
 
 import static com.google.location.nearby.apps.walkietalkie.Constants.TAG;
 
+
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.CallSuper;

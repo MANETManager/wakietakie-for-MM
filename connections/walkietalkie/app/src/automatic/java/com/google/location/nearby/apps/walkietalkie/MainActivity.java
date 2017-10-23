@@ -4,6 +4,7 @@ import android.Manifest;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -139,9 +140,22 @@ public class MainActivity extends ConnectionsActivity {
     mDebugLogView.setVisibility(DEBUG ? View.VISIBLE : View.GONE);
     mDebugLogView.setMovementMethod(new ScrollingMovementMethod());
 
-    mName = generateRandomName();
+    /* Intent取得 */
+    Intent i = getIntent();
+    if(i.getStringExtra("ip")!=null)
+    {
+      /* MANET Managerからインテントで受け取ったipアドレスがあるならば
+       * それを、本来ランダムに生成されるはずのmNameの代わりに保存する */
+      mName = i.getStringExtra("ip");
+      logV("having intent:" + mName);
+    }else{
+      mName = generateRandomName();
+      logV("have no intent");
+    }
+
 
     ((TextView) findViewById(R.id.name)).setText(mName);
+
   }
 
   @Override

@@ -166,6 +166,7 @@ public class MainActivity extends ConnectionsActivity implements SensorEventList
     mName = generateRandomName();
 
     ((TextView) findViewById(R.id.name)).setText(mName);
+
   }
 
   @Override
